@@ -9,6 +9,6 @@ podman volume create unbound
 # Run the image the first time, use google foo to research and solve any port conflict issues
 podman run --name unbound -d \
   -p 5335:53/udp -p 5335:53/tcp \
-  --mount type=volume,source=unbound,destination=/opt/unbound/etc/unbound \
+  -z unbound:/opt/unbound/etc/unbound \
   --restart=always \
   mvance/unbound:latest
